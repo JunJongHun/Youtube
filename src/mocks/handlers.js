@@ -9,7 +9,14 @@ export const handlers = [
   }),
 
   // bts 동영상
-  rest.get("/videos/bts", (req, res, ctx) => {
+  rest.get("/videos/bts?part=snippet", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(btsData));
   }),
+  // 검색 동영상
+  rest.get(
+    "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=bts&key={{key}}",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(btsData));
+    }
+  ),
 ];
