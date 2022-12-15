@@ -1,16 +1,20 @@
 import { rest } from "msw";
-
-const todos = ["먹기", "자기", "놀기"];
+import { btsData } from "../../public/data/btsData";
+import { popularData } from "../../public/data/popularData";
 
 export const handlers = [
-  // 할일 목록
-  rest.get("/todos", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(todos));
+  // 인기 동영상
+  rest.get("/", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(popularData));
   }),
 
-  // 할일 추가
-  rest.post("/todos", (req, res, ctx) => {
-    todos.push(req.body);
-    return res(ctx.status(201));
+  // 인기 동영상
+  rest.get("/videos", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(popularData));
+  }),
+
+  // bts 동영상
+  rest.get("/videos/:keyword", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.jsos(btsData));
   }),
 ];
