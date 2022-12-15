@@ -18,15 +18,16 @@ function Search(props) {
     setText("");
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="w-full flex justify-center" onSubmit={handleSubmit}>
       <input
+        className="w-7/12 p-3 outline-none bg-black text-gray-50"
         onChange={handleChange}
         type="text"
         name="keyword"
         value={text}
         placeholder="Searching.."
       />
-      <button onClick={handleSubmit}>
+      <button className="bg-zinc-600 p-4" onClick={handleSubmit}>
         <BiSearchAlt></BiSearchAlt>
       </button>
     </form>
