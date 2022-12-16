@@ -26,7 +26,7 @@ function Videos(props) {
       {isLoading && <p>loading...</p>}
       {error && <p>error...</p>}
       {videos && (
-        <ul>
+        <ul className="flex flex-wrap box-border -ml-1 -mr-1 ">
           {videos.map((video) => (
             <VideoCard key={video.id.videoId} video={video}></VideoCard>
           ))}

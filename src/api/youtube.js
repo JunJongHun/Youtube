@@ -1,5 +1,5 @@
 import axios from "axios";
-import { instance } from "./create";
+// import { instance } from "./create";
 
 export const getVideoData = async (keyword) => {
   return await axios(`/videos/${keyword ? keyword : "popular"}`).then((res) => {
