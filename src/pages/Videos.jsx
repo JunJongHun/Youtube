@@ -22,7 +22,7 @@ function Videos(props) {
 
   return (
     <>
-      <div>Videos {keyword ? keyword : "🔥"}</div>
+      {/* <div>Videos {keyword ? keyword : "🔥"}</div> */}
       {isLoading && <p>loading...</p>}
       {error && <p>error...</p>}
       {videos && (
