@@ -2,7 +2,11 @@ import axios from "axios";
 // import { instance } from "./create";
 
 export const getVideoData = async (keyword) => {
-  return await axios(`/videos/${keyword ? keyword : "popular"}`).then((res) => {
+  return await axios(
+    `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${
+      keyword ? keyword : "popular"
+    }&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+  ).then((res) => {
     console.log(keyword + " 데이터 요청함");
     console.log(res);
     return res.data.items;
